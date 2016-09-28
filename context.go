@@ -21,9 +21,13 @@ type joinContext struct {
 
 // Join returns new context which is child for two passed contexts.
 // It starts new goroutine which tracks both contexts.
+//
 // Done() channel is closed when one of parents contexts is done.
+//
 // Deadline() returns earliest deadline between parent contexts.
+//
 // Err() returns error from first done parent context.
+//
 // Value(key) looks for key in parent contexts. First found is returned.
 func Join(ctx1, ctx2 context.Context) (context.Context, context.CancelFunc) {
 	c := &joinContext{ctx1: ctx1, ctx2: ctx2, done: make(chan struct{})}

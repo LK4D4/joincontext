@@ -97,6 +97,7 @@ func (c *joinContext) cancel() {
 		return
 	}
 	c.err = context.Canceled
+
 	c.mu.Unlock()
 	close(c.done)
 }

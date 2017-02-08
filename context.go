@@ -12,7 +12,6 @@ import (
 
 type joinContext struct {
 	mu   sync.Mutex
-	once sync.Once
 	ctx1 context.Context
 	ctx2 context.Context
 	done chan struct{}
